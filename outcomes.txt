@@ -1,0 +1,63 @@
+原始比較
+        Subset:          sig17_training_crop128_stride64
+        Epochs:          20
+        Batch size:      2
+        Loss function:   1
+        Learning rate:   0.0002
+        Training size:   9240
+        Device:          cuda
+==Validation==  PSNR_l: 30.1157  PSNR_mu: 35.2452        SSIM_l: 0.9393  SSIM_mu: 0.9812
+Average PSNR_mu: 36.3568  PSNR_l: 31.6082
+Average SSIM_mu: 0.9825  SSIM_l: 0.9451
+>>>>>>>>> Finish Testing >>>>>>>>>
+
+輕量化之訓練後測試數據
+Average PSNR_mu: 26.8818  PSNR_l: 26.7806
+Average SSIM_mu: 0.9509  SSIM_l: 0.9248
+>>>>>>>>> Finish Testing >>>>>>>>>
+
+第一版：channel prior以及down sampling
+Average PSNR_mu: 15.9178  PSNR_l: 16.7974
+Average SSIM_mu: 0.6062  SSIM_l: 0.6204
+>>>>>>>>> Finish Testing >>>>>>>>>
+
+第二版:記憶體輕量化，增加loss
+Average PSNR_mu: 16.1029  PSNR_l: 16.7319
+Average SSIM_mu: 0.6080  SSIM_l: 0.6477
+>>>>>>>>> Finish Testing >>>>>>>>>
+
+!!!!!第三版:Ycbcr為輸入(3channel)
+        Subset:          sig17_training_crop128_stride64
+        Epochs:          20
+        Batch size:      2
+        Loss function:   1
+        Learning rate:   0.0002
+        Training size:   9240
+        Device:          cuda
+best epoch:16
+Validation set: Average PSNR: 35.9989, PSNR_mu: 38.0582, SSIM_l: 0.9781, SSIM_mu: 0.9855
+>>>>>>>>> Start Testing >>>>>>>>>
+Average PSNR_mu: 38.0691  PSNR_l: 36.0047
+Average SSIM_mu: 0.9858  SSIM_l: 0.9787
+>>>>>>>>> Finish Testing >>>>>>>>>
+
+第四版:輸入Y CB Cr 進IAAF
+ Dataset dir:     ./data
+        Subset:          sig17_training_crop128_stride64
+        Epochs:          10
+        Batch size:      2
+        Loss function:   1
+        Learning rate:   0.0002
+        Training size:   9240
+        Device:          cuda
+
+第五版：輸入利用LDR gamma改成YCBCR並送入CA-vit.
+ Dataset dir:     ./data
+        Subset:          sig17_training_crop128_stride64
+        Epochs:          20
+        Batch size:      2
+        Loss function:   1
+        Learning rate:   0.0002
+        Training size:   9240
+        Device:          cuda
+Validation set: Average PSNR: 27.0439, PSNR_mu: 23.0439, SSIM_l: 0.8731, SSIM_mu: 0.8835
